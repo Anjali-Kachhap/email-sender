@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Email Sender Dashboard</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Link to CSS -->
+</head>
+<body>
+    <header>
+        <h1>Custom Email Sender Dashboard</h1>
+    </header>
+    <main id="app">
+        <!-- Sections will go here -->
+        <section id="data-upload">
+            <h2>Upload Data</h2>
+            <form id="upload-form">
+                <label for="file-upload">Upload CSV File:</label>
+                <input type="file" id="file-upload" accept=".csv">
+                <button type="button" onclick="uploadCSV()">Upload</button>
+            </form>
+            <hr>
+            <button onclick="connectGoogleSheets()">Connect Google Sheets</button>
+        </section>
+
+        <section id="email-integration">
+            <h2>Email Account Integration</h2>
+            <button onclick="connectEmail()">Connect Email Account</button>
+            <form id="smtp-config">
+                <label for="smtp-server">SMTP Server:</label>
+                <input type="text" id="smtp-server" placeholder="smtp.example.com">
+                
+                <label for="smtp-port">Port:</label>
+                <input type="number" id="smtp-port" value="587">
+                
+                <label for="email">Email:</label>
+                <input type="email" id="email">
+                
+                <label for="password">Password:</label>
+                <input type="password" id="password">
+                
+                <button type="button" onclick="configureSMTP()">Configure</button>
+            </form>
+        </section>
+
+        <section id="prompt-box">
+            <h2>Email Customization</h2>
+            <textarea id="email-template" rows="5" cols="50" placeholder="Hello {Company Name}, we are pleased to..."></textarea>
+            <button type="button" onclick="saveTemplate()">Save Template</button>
+        </section>
+        
+        <section id="email-scheduling">
+            <h2>Email Scheduling</h2>
+            <form id="schedule-form">
+                <label for="schedule-time">Schedule Time:</label>
+                <input type="datetime-local" id="schedule-time">
+                
+                <label for="rate-limit">Emails per Hour:</label>
+                <input type="number" id="rate-limit" value="50">
+                
+                <button type="button" onclick="scheduleEmails()">Schedule Emails</button>
+            </form>
+        </section>
+        
+        <section id="dashboard">
+            <h2>Email Status Dashboard</h2>
+            <div id="email-status">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Recipient</th>
+                            <th>Status</th>
+                            <th>Delivery Status</th>
+                            <th>Opened</th>
+                        </tr>
+                    </thead>
+                    <tbody id="status-table">
+                        <!-- Rows populated by JavaScript -->
+                    </tbody>
+                </table>
+            </div>
+        </section>
+        
+        
+        
+        
+    </main>
+    <script src="scripts.js"></script> <!-- Link to JS -->
+    <script src="index.js"></script>
+</body>
+</html>
